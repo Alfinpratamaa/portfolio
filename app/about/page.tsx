@@ -85,7 +85,7 @@ const AboutPage: React.FC = () => {
                 </div>
             </div>
         </div>
-            <div className=' lg:h-screen'>
+            <div className=' lg:min-h-screen  '>
 
                 <Skills />
             </div>

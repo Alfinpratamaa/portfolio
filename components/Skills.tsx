@@ -34,7 +34,7 @@ const Skills = () => {
                     <SkillData src={skill.Image} width={skill.width} height={skill.height} index={index} />
                 ))}
             </div>
-            <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+            <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center ">
                 {/* SkillData */}
                 {ml_skills.map((skill, index) => (
                     <SkillData src={skill.Image} width={skill.width} height={skill.height} index={index} />
