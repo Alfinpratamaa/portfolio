@@ -25,3 +25,174 @@ export const Social_Icons = [
         alt : "Whatsapp"
     }
   ];
+
+  export const Skill_data = [
+    {
+      skill_name: "Html 5",
+      Image: "/html.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "VS Code",
+      Image: "/vscode.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Postman",
+      Image: "/postman.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Tailwind Css",
+      Image: "/tailwind.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Kotlin",
+      Image: "/kotlin.svg",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Android Studio",
+      Image: "/androidstudio.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Python",
+      Image: "/python.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Next js",
+      Image: "/Next.js.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Framer Motion",
+      Image: "/framer.png",
+      width: 80,
+      height: 80,
+    },
+  ];
+
+  export const Frontend_skill = [
+    {
+      skill_name: "Html 5",
+      Image: "/html.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Css",
+      Image: "/css.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Java Script",
+      Image: "/js.png",
+      width: 65,
+      height: 65,
+    },
+    {
+      skill_name: "Tailwind Css",
+      Image: "/tailwind.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "React",
+      Image: "/react.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "React Query",
+      Image: "/reactquery.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Type Script",
+      Image: "/ts.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Next js",
+      Image: "/Next.js.png",
+      width: 80,
+      height: 80,
+    },
+  ];
+
+  export const tools = [
+    {
+      skill_name: "Figma",
+      Image: "/Figma.svg",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Git",
+      Image: "/git.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Github",
+      Image: "/Github.svg",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "VS Code",
+      Image: "/vscode.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Postman",
+      Image: "/postman.png",
+      width: 80,
+      height: 80,
+    },
+  ];
+
+  export const android_skill = [
+    {
+      skill_name: "Java",
+      Image: "/java.png",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Kotlin",
+      Image: "/kotlin.svg",
+      width: 80,
+      height: 80,
+    },
+    {
+      skill_name: "Android Studio",
+      Image: "/androidstudio.png",
+      width: 80,
+      height: 80,
+    },
+  ];
+
+  export const ml_skills = [
+    {
+      skill_name: "Python",
+      Image: "/python.png",
+      width: 80,
+      height: 80,
+    },
+  ];
