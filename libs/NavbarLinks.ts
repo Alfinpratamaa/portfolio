@@ -1,15 +1,19 @@
 export const NavbarLinks = [
-    {
-        text: "About Me",
-        href: "/about",
-    },
-    {
-        text: "Projects",
-        href: "/projects",
-    },
-    {
-        text: "Contact Us",
-        href: "/contact",
-    },
+  {
+    text: "Home",
+    href: "/",
+  },
+  {
+    text: "About Me",
+    href: "/about",
+  },
+  {
+    text: "Projects",
+    href: "/projects",
+  },
+  {
+    text: "Contact Me",
+    href: "/contact",
+  },
 ];
 

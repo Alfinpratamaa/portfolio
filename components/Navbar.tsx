@@ -1,7 +1,5 @@
-"use client";
-
+"use client";;
 import { NavbarLinks } from "@/libs/NavbarLinks";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
