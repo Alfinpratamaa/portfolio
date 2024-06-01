@@ -53,15 +53,15 @@ const AboutSection = () => {
 
     return (
         <motion.section initial="hidden" animate="visible" variants={containerVariants}>
-            <div className="max-w-4xl mx-auto px-4 lg:px-0 flex items-center h-auto lg:h-screen flex-wrap my-5 lg:my-0 text-white">
+            <div className="max-w-4xl mx-auto px-4 lg:px-0 flex items-center  h-auto lg:h-screen flex-wrap my-5 lg:my-0 text-white">
                 <motion.div
                     id="profile"
-                    className="w-full lg:w-3/5 mt-[120px] justify-center rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-transparent"
+                    className="w-full lg:w-3/5 mt-[120px] justify-center z-[1] rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-transparent"
                     variants={itemVariants}
                 >
                     <div className="p-4 md:p-12 text-center lg:text-left flex flex-col lg:flex-row gap-10">
                         <motion.div
-                            className="cursor-pointer mx-auto lg:mt-8 flex-none items-center justify-center shadow-xl h-48 w-48 bg-cover bg-center grayscale hover:grayscale-0 hover:scale-105 transition-all duration-500"
+                            className="cursor-pointer mx-auto lg:mt-8 flex-none items-center justify-center shadow-xl h-48 w-48 bg-cover bg-center grayscale hover:grayscale-0 hover:scale-105 transition-all hover:duration-200"
                             whileHover="hover"
                             variants={imageVariants}
                         >

@@ -35,9 +35,9 @@ const ProjectSection = () => {
             initial="hidden"
             animate="visible"
         >
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex z-[1] flex-col items-center justify-center">
                 <motion.h1
-                    className="text-4xl font-semibold text-transparent md:mt-[20px] bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 mb-10"
+                    className="text-4xl font-semibold text-transparent mt-[50px] md:mt-[20px] bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 mb-10"
                     variants={headingVariants}
                 >
                     My Projects

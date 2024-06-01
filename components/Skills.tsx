@@ -19,8 +19,11 @@ const SkillData = ({ src, width, height, alt }: any) => (
     <motion.div
         className="flex flex-col items-center"
         variants={skillVariants}
+        initial="hidden"
+        animate="visible"
+        whileHover="infinite"
     >
-        <Image src={src} width={width} height={height} alt={alt} className="rounded-md" />
+        <Image src={src} width={width} height={height} alt={alt} className="rounded-md animate-bounce" />
         <p className="mt-2 text-white text-center text-sm">{alt}</p>
     </motion.div>
 );

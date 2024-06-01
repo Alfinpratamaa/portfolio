@@ -48,22 +48,22 @@ const ProjectCard = ({
 
     return (
         <motion.div
-            className="bg-gray-800 p-6 rounded-lg shadow-lg z-[1] text-white max-w-md mx-auto flex flex-col justify-between h-full"
+            className="bg-transparent border border-white p-6 rounded-lg shadow-lg  text-white max-w-md mx-auto flex flex-col justify-between h-full"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
         >
             <motion.div className='mb-5' variants={containerVariants}>
-                <motion.div className="relative w-full h-56" variants={imageVariants}>
+                < motion.div className="relative w-full h-56 z-[1]" variants={imageVariants} >
                     <Image src={srcImg} alt={title} layout="fill" objectFit="cover" className="rounded-lg cursor-pointer object-contain hover:scale-105 transition-all duration-500" />
-                </motion.div>
+                </ motion.div>
                 <motion.div className="flex justify-between items-center mt-4" variants={textVariants}>
                     <span className="text-sm text-gray-400">{date}</span>
                 </motion.div>
                 <motion.h3 className="mt-2 text-xl font-semibold text-white" variants={textVariants}>{title}</motion.h3>
                 <motion.p className="mt-2 text-gray-300" variants={textVariants}>{description}</motion.p>
-            </motion.div>
-            <motion.div className="flex justify-center items-center gap-4 mt-auto" variants={textVariants}>
+            </motion.div >
+            <motion.div className="flex justify-center items-center z-[1] gap-4 mt-auto" variants={textVariants}>
                 <Link href={srcGithub}>
                     <div className="w-6 h-6 rounded-full">
                         <FaGithub className='w-full h-full' />
@@ -75,7 +75,7 @@ const ProjectCard = ({
                     </div>
                 </Link>
             </motion.div>
-        </motion.div>
+        </motion.div >
     );
 };
 
