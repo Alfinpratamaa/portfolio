@@ -58,9 +58,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${inter.className} bg-[#111] min-h-screen overflow-y-scroll overflow-x-hidden`}
+        className={`${inter.className} bg-black min-h-screen overflow-y-scroll overflow-x-hidden`}
       >
         <Analytics />
         <StarsCanvas />
