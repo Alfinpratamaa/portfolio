@@ -62,7 +62,7 @@ const Navbar: React.FC<{}> = () => {
         {/* Navbar for mobile */}
         <div >
           <div onClick={handleNav} className='block md:hidden cursor-pointer'>
-            {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+            {nav ? <AiOutlineClose className="text-white" size={20} /> : <AiOutlineMenu size={20} className="text-white" />}
           </div>
           <ul
             className={
