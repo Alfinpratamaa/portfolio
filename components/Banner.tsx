@@ -73,7 +73,7 @@ const Banner: React.FC<{}> = () => {
               className="flex z-[1] items-center justify-center w-full md:w-auto py-3 px-6 text-white font-semibold bg-transparent hover:bg-white hover:text-black border border-white rounded-3xl transition-all duration-300"
               variants={itemVariants}
             >
-              <Link href={""}>
+            <Link download={'/cv-alfin.pdf'} href={"/cv-alfin.pdf"}>
                 Download CV <FaCloudDownloadAlt className="mx-auto" />
               </Link>
             </motion.button>
@@ -82,7 +82,7 @@ const Banner: React.FC<{}> = () => {
               className="z-[1] w-full md:w-auto py-3 px-6 bg-white text-black font-semibold rounded-3xl hover:bg-white/90 transition-all duration-300"
               variants={itemVariants}
             >
-              <Link href={"/project"}>
+            <Link href={"/projects"}>
                 See My Project
               </Link>
             </motion.button>
