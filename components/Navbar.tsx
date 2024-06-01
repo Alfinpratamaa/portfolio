@@ -32,13 +32,13 @@ const Navbar: React.FC<{}> = () => {
 
   return (
     <div className="w-full h-[5px] bg-['#111'] fixed backdrop-blur-sm py-12 z-50 px-10">
-      <div className="w-full h-full flex flex-row items-center justify-between px-[10px]">
+      <motion.div variants={containerVariants} className="w-full h-full flex flex-row items-center justify-between px-[10px]">
         <Link
           title="Alfin logo"
           href="/"
           className="h-auto w-auto flex flex-row items-center"
         >
-          <h1 className=" bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 text-transparent text-2xl font-bold">Alfin</h1>
+          <motion.h1 variants={navItemVariants} className=" bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 text-transparent text-2xl font-bold">Alfin</motion.h1>
         </Link>
         {/* Navbar for desktop */}
         <div className="md:flex hidden">
@@ -87,7 +87,7 @@ const Navbar: React.FC<{}> = () => {
             ))}
           </ul>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

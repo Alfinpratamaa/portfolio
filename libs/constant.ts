@@ -196,3 +196,33 @@ export const Social_Icons = [
       height: 80,
     },
   ];
+
+
+  export const project_data = [
+    {
+      title: "Comics Reader Bahasa Indonesia",
+      description:
+        "Aplikasi pembaca komik bahasa indonesia yang dibuat menggunakan next js dan tailwind css dan menggunakan api dari api yang dibuat sendiri melalui scrapping web",
+      image: "/mangap.png",
+      linkDemo: "https://mangap.vercel.app/",
+      linkGithub: "https://github.com/Alfinpratamaa/mangap",
+      date: "March 2024 - May 2024",
+    },
+    {
+      title: "Selfgalery Web Apps",
+      description:
+        " Aplikasi galeri foto yang dibuat menggunakan next js dan tailwind css berfungsi untuk menyimpan foto-foto. bisa upload, delete, dan download foto.",
+      image: "/selfgalery.png",
+      linkDemo: "https://selfgalery.vercel.app/",
+      linkGithub: "https://github.com/Alfinpratamaa/selfgalery",
+      date: "january 2024 - february 2024",
+    },
+    {
+      title: "Portfolio",
+      description: "Portfolio ini dibuat menggunakan next js dan tailwind css",
+      image: "/portfolio.png",
+      linkDemo: "https://muhamadalfinpratama.vercel.app/",
+      linkGithub: "https://github.com/Alfinpratamaa/portfolio",
+      date: "June 2024",
+    },
+  ];
