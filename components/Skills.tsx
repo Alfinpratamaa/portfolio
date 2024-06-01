@@ -9,7 +9,7 @@ const Skills = () => {
             style={{ transform: "scale(0.9" }}
 
         >
-            <h1 className="font-bold text-6xl  mt-10 text-white">Skills</h1>
+            <h1 className="font-bold text-6xl  mt-1 text-white">Skills</h1>
             <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
                 {/* SkillData */}
                 {Skill_data.map((skill, index) => (
