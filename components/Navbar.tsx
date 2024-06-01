@@ -60,18 +60,18 @@ const Navbar: React.FC<{}> = () => {
           </motion.ul>
         </div>
         {/* Navbar for mobile */}
-        <div className="">
+        <div >
           <div onClick={handleNav} className='block md:hidden cursor-pointer'>
             {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
           </div>
           <ul
             className={
               nav
-                ? 'fixed md:hidden left-0 top-0 w-[60%] h-screen border-r border-r-white bg-white z-[1]  ease-in-out duration-500'
+                ? 'fixed md:hidden left-0 top-0 w-[60%] min-h-screen bg-gradient-to-r from-purple-500 to-orange-500 z-[1]  ease-in-out duration-500'
                 : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
             }
           >
-            <h1 className="p-4 text-center text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-orange-500">Alfin</h1>
+            <h1 className="p-4 text-center text-2xl font-bold text-white">Alfin</h1>
 
             {/* Mobile Navigation Items */}
             {NavbarLinks.map(item => (
@@ -79,7 +79,7 @@ const Navbar: React.FC<{}> = () => {
                 <li
                   key={item.href}
                   onClick={() => setNav(false)}
-                  className='p-4 border-b rounded-xl top-10 hover:bg-black hover:text-white duration-300 text-black cursor-pointer border-gray-600'
+                  className='p-4 border-b border-b-white rounded-xl top-10 hover:bg-black hover:text-white duration-300 text-black cursor-pointer border-gray-600'
                 >
                   {item.text}
                 </li>

@@ -34,16 +34,21 @@ export const metadata: Metadata = {
     "Frontend Engineer",
     "Front-end Engineer",
     "Front End Engineer",
+    "Muhamad Alfin",
+    "Alfin Pratama",
+    "Muhamad",
+    "Alfin",
+    "Pratama",
 
   ],
   openGraph: {
     title: "Muhamad Alfin Pratama",
     description:
       "Frontendwith 1+ years of expertise. Junior Software Engineer. Specializing web apps, UX, and JavaScript technologies.",
-    images: "/OpenGraph.jpg",
+    images: "/Me.png",
   },
   alternates: {
-    canonical: "https://alfinpratamaa.github.io/",
+    canonical: "https://muhamadalfinpratama.vercel.app",
   },
 };
 

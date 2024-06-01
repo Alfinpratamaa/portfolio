@@ -102,7 +102,7 @@ const Banner: React.FC<{}> = () => {
 
         <motion.div variants={itemVariants} className="flex mx-auto flex-col md:flex-row justify-center md:justify-start items-center gap-4">
           <motion.button
-            className="z-[1] items-center  justify-center w-full md:w-auto px-6 py-1 text-white font-semibold bg-transparent hover:bg-white hover:text-black border border-white rounded-3xl transition-all duration-300"
+            className="z-[1] items-center animate-bounce justify-center w-full md:w-auto px-6 py-1 text-white font-semibold bg-transparent hover:bg-white hover:text-black border border-white rounded-3xl transition-all duration-300"
             variants={itemVariants}
           >
             <Link download={'/cv-alfin.pdf'} href={"/cv-alfin.pdf"}>
