@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ReactTypingEffect from 'react-typing-effect';
 
 const Banner: React.FC<{}> = () => {
   const containerVariants = {
@@ -22,22 +23,44 @@ const Banner: React.FC<{}> = () => {
     visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
 
+  const typingTexts = [
+    {
+      first: "Muhamad Alfin",
+      second: "Pratama",
+    },
+    {
+      first: "Student",
+      second: "at Universitas Teknologi Bandung",
+    },
+    {
+      first: "Frontend",
+      second: "Developer",
+    },
+    {
+      first: "Tech",
+      second: "Enthusiast",
+    },
+  ];
+
+  const texts = typingTexts.map(item => `${item.first} ${item.second}`);
+
   return (
     <motion.section
       className="flex flex-col md:flex-row items-center justify-center gap-8 px-5 md:px-20 min-h-screen mt-[5px] text-center md:text-left"
       initial="hidden"
       animate="visible"
-      variants={containerVariants} >
-
+      variants={containerVariants}
+    >
       <Image
         priority
         src="/avatar_2.jpeg"
         height={250}
         width={250}
         alt="Alfin"
-        className="rounded-full cursor-pointer hover:animate-spin hover:duration-200 mt-[120px] md:mt-[100px]" />
+        className="rounded-full cursor-pointer hover:animate-spin hover:duration-200 mt-[120px] md:mt-[100px]"
+      />
 
-      {/* Container untuk konten  */}
+      {/* Container untuk konten */}
       <motion.aside
         className="flex flex-col gap-6 md:mt-0 mt-8 tracking-tighter text-white max-w-[600px]"
         variants={itemVariants}
@@ -48,10 +71,26 @@ const Banner: React.FC<{}> = () => {
 
         <div className="flex mx-auto md:mx-0 items-center gap-4">
           <div className="text-2xl font-medium tracking-tighter text-gray-300">
-            Muhamad Alfin{" "}
-            <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-500 to-orange-400">
-              Pratama
-            </span>
+            <ReactTypingEffect
+              text={texts}
+              speed={100}
+              eraseSpeed={25}
+              typingDelay={800}
+              eraseDelay={1000}
+              displayTextRenderer={(text, i) => {
+                const [first, ...rest] = text.split(" ");
+                const second = rest.join(" ");
+                return (
+                  <>
+                    <span>{first}</span>
+                    {" "}
+                    <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-500 to-orange-400">
+                      {second}
+                    </span>
+                  </>
+                );
+              }}
+            />
           </div>
           <Image src="/popcorn.gif" height={50} width={50} alt="chill" />
         </div>

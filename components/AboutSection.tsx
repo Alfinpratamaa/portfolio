@@ -68,7 +68,7 @@ const AboutSection = () => {
                             <Image src={'/Me.png'} alt={'alfin'} height={200} width={200} className='rounded-full' />
                         </motion.div>
                         <motion.div className='flex-none' variants={itemVariants}>
-                            <h1 className="text-3xl font-bold pt-8 lg:pt-0">Muhamad Alfin Pratamae</h1>
+                            <h1 className="text-3xl font-bold pt-8 lg:pt-0">Muhamad Alfin Pratama</h1>
                             <div className="relative mx-auto lg:mx-0 w-4/5 pt-3">
                                 <div className="absolute inset-0 h-0.5 bg-gradient-to-r from-purple-500 to-orange-400"></div>
                             </div>
