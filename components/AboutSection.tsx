@@ -53,21 +53,21 @@ const AboutSection = () => {
 
     return (
         <motion.section initial="hidden" animate="visible" variants={containerVariants}>
-            <div className="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-5 lg:my-0 text-white">
+            <div className="max-w-4xl mx-auto px-4 lg:px-0 flex items-center h-auto lg:h-screen flex-wrap my-5 lg:my-0 text-white">
                 <motion.div
                     id="profile"
-                    className="w-full z-[1] lg:w-3/5 mt-[120px] justify-center rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-transparent mx-6 lg:mx-0"
+                    className="w-full lg:w-3/5 mt-[120px] justify-center rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-transparent"
                     variants={itemVariants}
                 >
-                    <div className="p-4 md:p-12 text-center gap-10 flex lg:text-left">
+                    <div className="p-4 md:p-12 text-center lg:text-left flex flex-col lg:flex-row gap-10">
                         <motion.div
-                            className="cursor-pointer lg:mt-8 flex-none items-center pr-10 justify-center shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center grayscale hover:grayscale-0 hover:scale-105 transition-all hover:duration-100 duration-300"
+                            className="cursor-pointer mx-auto lg:mt-8 flex-none items-center justify-center shadow-xl h-48 w-48 bg-cover bg-center grayscale hover:grayscale-0 hover:scale-105 transition-all duration-500"
                             whileHover="hover"
                             variants={imageVariants}
                         >
                             <Image src={'/Me.png'} alt={'alfin'} height={200} width={200} className='rounded-full' />
                         </motion.div>
-                        <motion.div className='flex-none -mt-10' variants={itemVariants}>
+                        <motion.div className='flex-none' variants={itemVariants}>
                             <h1 className="text-3xl font-bold pt-8 lg:pt-0">Muhamad Alfin Pratamae</h1>
                             <div className="relative mx-auto lg:mx-0 w-4/5 pt-3">
                                 <div className="absolute inset-0 h-0.5 bg-gradient-to-r from-purple-500 to-orange-400"></div>
@@ -91,10 +91,10 @@ const AboutSection = () => {
                                     Get In Touch
                                 </button>
                             </div>
-                            <motion.div className="pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex items-center" variants={itemVariants}>
+                            <motion.div className="pb-16 lg:pb-0 w-full mx-auto flex items-center justify-center lg:justify-start space-x-4" variants={itemVariants}>
                                 {socials.map((social, index) => (
                                     <Link href={social.href} key={index} className='border-white hover:bg-white rounded-full border-b-2'>
-                                        <p className="bg-transparent cursor-pointer text-white hover:text-black rounded-full w-20 h-20 flex items-center justify-center">
+                                        <p className="bg-transparent cursor-pointer text-white hover:text-black rounded-full w-12 h-12 flex items-center justify-center">
                                             {social.icon}
                                         </p>
                                     </Link>
