@@ -68,7 +68,7 @@ const Banner: React.FC<{}> = () => {
             dedicated to crafting elegant and user-friendly web applications.
           </p>
 
-          <div className="flex flex-col md:flex-row justify-center md:justify-start items-center gap-4">
+        <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-center md:justify-start items-center gap-4">
             <motion.button
               className="flex z-[1] items-center justify-center w-full md:w-auto py-3 px-6 text-white font-semibold bg-transparent hover:bg-white hover:text-black border border-white rounded-3xl transition-all duration-300"
               variants={itemVariants}
@@ -86,7 +86,7 @@ const Banner: React.FC<{}> = () => {
                 See My Project
               </Link>
             </motion.button>
-          </div>
+        </motion.div>
         </motion.div>
       </motion.div>
     );

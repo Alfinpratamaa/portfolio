@@ -1,8 +1,9 @@
 'use client';
 import { NavbarLinks } from "@/libs/NavbarLinks";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
 const Navbar: React.FC<{}> = () => {
   const navItemVariants = {
@@ -21,6 +22,14 @@ const Navbar: React.FC<{}> = () => {
     },
   };
 
+  // State to manage the navbar's visibility
+  const [nav, setNav] = useState(false);
+
+  // Toggle function to handle the navbar's display
+  const handleNav = () => {
+    setNav(!nav);
+  };
+
   return (
     <div className="w-full h-[5px] bg-['#111'] fixed backdrop-blur-sm py-12 z-50 px-10">
       <div className="w-full h-full flex flex-row items-center justify-between px-[10px]">
@@ -29,9 +38,9 @@ const Navbar: React.FC<{}> = () => {
           href="/"
           className="h-auto w-auto flex flex-row items-center"
         >
-          <h1 className="text-white text-2xl font-bold">Alfin</h1>
+          <h1 className=" bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 text-transparent text-2xl font-bold">Alfin</h1>
         </Link>
-
+        {/* Navbar for desktop */}
         <div className="md:flex hidden">
           <motion.ul
             initial="hidden"
@@ -49,6 +58,34 @@ const Navbar: React.FC<{}> = () => {
                 </motion.li>
               ))}
           </motion.ul>
+        </div>
+        {/* Navbar for mobile */}
+        <div className="">
+          <div onClick={handleNav} className='block md:hidden cursor-pointer'>
+            {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+          </div>
+          <ul
+            className={
+              nav
+                ? 'fixed md:hidden left-0 top-0 w-[60%] h-screen border-r border-r-white bg-white z-[1]  ease-in-out duration-500'
+                : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
+            }
+          >
+            <h1 className="p-4 text-center text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-orange-500">Alfin</h1>
+
+            {/* Mobile Navigation Items */}
+            {NavbarLinks.map(item => (
+              <Link key={item.href} href={item.href}>
+                <li
+                  key={item.href}
+                  onClick={() => setNav(false)}
+                  className='p-4 border-b rounded-xl top-10 hover:bg-black hover:text-white duration-300 text-black cursor-pointer border-gray-600'
+                >
+                  {item.text}
+                </li>
+              </Link>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
