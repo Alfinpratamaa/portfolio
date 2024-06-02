@@ -57,7 +57,7 @@ const Banner: React.FC<{}> = () => {
         height={250}
         width={250}
         alt="Alfin"
-        className="rounded-full cursor-pointer hover:animate-spin hover:duration-200 mt-[120px] md:mt-[100px]"
+        className="rounded-full cursor-pointer hover:animate-spin hover:duration-200 mt-[120px] md:mt-[70px]"
       />
 
       {/* Container untuk konten */}
