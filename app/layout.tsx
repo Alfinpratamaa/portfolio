@@ -62,6 +62,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="shortcut icon" href="/avatar_2.jpeg" />
+      </head>
       <body
         className={`${inter.className} bg-black min-h-screen overflow-y-scroll overflow-x-hidden`}
       >
