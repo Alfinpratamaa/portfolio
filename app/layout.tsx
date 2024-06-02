@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     "Pratama",
 
   ],
+  creator: "Muhamad Alfin Pratama",
+  applicationName: "Muhamad Alfin Pratama",
+  icons: "/avatar_2.jpeg",
   openGraph: {
     title: "Muhamad Alfin Pratama",
     description:
