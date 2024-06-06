@@ -202,7 +202,7 @@ export const Social_Icons = [
     {
       title: "Comics Reader Bahasa Indonesia",
       description:
-        "Aplikasi pembaca komik bahasa indonesia yang dibuat menggunakan next js dan tailwind css dan menggunakan api dari api yang dibuat sendiri melalui scrapping web",
+        "Aplikasi pembaca komik bahasa indonesia yang dibuat menggunakan next js dan tailwind css dan menggunakan api yang dibuat sendiri melalui scrapping web (server project ini tidak berjalan, karena server project ini hanya berjalan di local server saya).",
       image: "/mangap.png",
       linkDemo: "https://mangap.vercel.app/",
       linkGithub: "https://github.com/Alfinpratamaa/mangap",
