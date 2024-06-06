@@ -29,15 +29,20 @@ const ProjectSection = () => {
     };
 
     return (
-        <motion.section
-            className="py-20 bg-black text-white"
-            variants={sectionVariants}
+        <section
+            className="py-10 bg-black text-white"
+        >
+            <motion.div variants={sectionVariants}
             initial="hidden"
             animate="visible"
-        >
-            <div className="flex z-[1] flex-col h-screen items-center justify-center">
+
+                className="flex z-[1] flex-col h-screen items-center justify-center">
                 <motion.h1
+<<<<<<< HEAD
                     className="text-4xl font-semibold text-transparent mt-[50px] md:mt-[80px] bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 mb-10"
+=======
+                    className="text-4xl font-semibold text-transparent mt-[1000px] md:mt-[20px] bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 mb-10"
+>>>>>>> df806fd (Update ProjectSection styling)
                     variants={headingVariants}
                 >
                     My Projects
@@ -59,8 +64,8 @@ const ProjectSection = () => {
                         </motion.div>
                     ))}
                 </motion.div>
-            </div>
-        </motion.section>
+            </motion.div>
+        </section>
     );
 };
 
