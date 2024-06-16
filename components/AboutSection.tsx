@@ -9,23 +9,23 @@ const AboutSection = () => {
     const socials = [
         {
             icon: <FaInstagram />,
-            href: "https://www.instagram.com"
+            href: "https://www.instagram.com/visfiveor5"
         },
         {
             icon: <FaLinkedin />,
-            href: "https://www.linkedin.com"
+            href: "https://www.linkedin.com/in/alfinpr"
         },
         {
             icon: <FaGithub />,
-            href: "https://www.github.com"
+            href: "https://www.github.com/Alfinpratamaa"
         },
         {
             icon: <FaWhatsapp />,
-            href: "https://wa.me"
+            href: "https://wa.me/6285175369960"
         },
         {
             icon: <FaTelegram />,
-            href: "https://t.me"
+            href: "https://t.me/visfiveor5"
         }
     ];
 
@@ -87,9 +87,11 @@ const AboutSection = () => {
                                 Let's work together to bring your ideas to life!
                             </p>
                             <div className="pt-12 pb-8">
+                                <Link href={'/contact'}>
                                 <button className="bg-gradient-to-r from-purple-500 to-orange-400 hover:bg-gradient-to-r hover:from-purple-500/45 hover:to-orange-400/45 text-white font-bold py-2 px-4 rounded-full">
                                     Get In Touch
                                 </button>
+                                </Link>
                             </div>
                             <motion.div className="pb-16 lg:pb-0 w-full mx-auto flex items-center justify-center lg:justify-start space-x-4" variants={itemVariants}>
                                 {socials.map((social, index) => (
