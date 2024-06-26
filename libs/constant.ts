@@ -204,7 +204,7 @@ export const Social_Icons = [
       description:
         "Aplikasi pembaca komik bahasa indonesia yang dibuat menggunakan next js dan tailwind css dan menggunakan api yang dibuat sendiri melalui scrapping web (server project ini tidak berjalan, karena server project ini hanya berjalan di local server saya).",
       image: "/mangap.png",
-      linkDemo: "https://read-mangap-2e8d175f072b.herokuapp.com/",
+      linkDemo: "https://mangapp.me",
       linkGithub: "https://github.com/Alfinpratamaa/mangap",
       date: "March 2024 - May 2024",
     },
