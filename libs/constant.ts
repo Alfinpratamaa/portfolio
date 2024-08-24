@@ -226,3 +226,31 @@ export const Social_Icons = [
       date: "June 2024",
     },
   ];
+
+  export const airdrop_list = [
+    {
+      name: "Hamster Combat",
+      href: "https://www.hamstercombat.com/",
+      icon: "https://media.licdn.com/dms/image/D4E12AQEDQO8mfuB2hQ/article-cover_image-shrink_720_1280/0/1713863075321?e=2147483647&v=beta&t=EZDX5jHXQytBvNptITuDrY2sPm1KvfHnRoU3WL7tuGg",
+    },
+    {
+      name: "Hamster Combat",
+      href: "https://www.hamstercombat.com/",
+      icon: "https://media.licdn.com/dms/image/D4E12AQEDQO8mfuB2hQ/article-cover_image-shrink_720_1280/0/1713863075321?e=2147483647&v=beta&t=EZDX5jHXQytBvNptITuDrY2sPm1KvfHnRoU3WL7tuGg",
+    },
+    {
+      name: "Hamster Combat",
+      href: "https://www.hamstercombat.com/",
+      icon: "https://media.licdn.com/dms/image/D4E12AQEDQO8mfuB2hQ/article-cover_image-shrink_720_1280/0/1713863075321?e=2147483647&v=beta&t=EZDX5jHXQytBvNptITuDrY2sPm1KvfHnRoU3WL7tuGg",
+    },
+    {
+      name: "Hamster Combat",
+      href: "https://www.hamstercombat.com/",
+      icon: "https://media.licdn.com/dms/image/D4E12AQEDQO8mfuB2hQ/article-cover_image-shrink_720_1280/0/1713863075321?e=2147483647&v=beta&t=EZDX5jHXQytBvNptITuDrY2sPm1KvfHnRoU3WL7tuGg",
+    },
+    {
+      name: "Hamster Combat",
+      href: "https://www.hamstercombat.com/",
+      icon: "https://media.licdn.com/dms/image/D4E12AQEDQO8mfuB2hQ/article-cover_image-shrink_720_1280/0/1713863075321?e=2147483647&v=beta&t=EZDX5jHXQytBvNptITuDrY2sPm1KvfHnRoU3WL7tuGg",
+    },
+  ];

@@ -35,15 +35,15 @@ const ProjectSection = () => {
             initial="hidden"
             animate="visible"
         >
-            <div className="flex z-[1] flex-col h-screen items-center justify-center">
+            <div className="flex z-[1] flex-col h-screen md:py-20 md:mb-32 items-center  justify-center">
                 <motion.h1
-                    className="text-4xl font-semibold text-transparent mt-[1050px] md:mt-[60px] bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 mb-10"
+                    className="text-4xl font-semibold text-transparent mt-[1050px] md:mt-[90px] bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 mb-10"
                     variants={headingVariants}
                 >
                     My Projects
                 </motion.h1>
                 <motion.div
-                    className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5"
+                    className="w-full grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-10 px-5"
                     variants={sectionVariants}
                 >
                     {project_data.map((project, index) => (
