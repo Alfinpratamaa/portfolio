@@ -38,9 +38,9 @@ export const metadata: Metadata = {
 
 const AboutPage: React.FC = () => {
     return (
-        <>
+        <div>
             <About />
-        </>
+        </div>
     );
 };
 
