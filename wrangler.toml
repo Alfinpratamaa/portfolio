@@ -1,0 +1,10 @@
+name = "portfolio alfin"
+main = index.js
+
+build = {
+    command = "bun run build,
+    cwd = "./",
+}
+
+[env.production]
+output_dir = "./vercel/output/static
