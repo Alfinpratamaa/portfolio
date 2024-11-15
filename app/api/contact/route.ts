@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -35,5 +37,3 @@ export const POST = async (req: Request) => {
     return Response.json({ error: "Error sending email" }, { status: 500 });
   }
 };
-
-
