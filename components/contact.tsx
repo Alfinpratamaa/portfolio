@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 const Contact = () => {
@@ -153,6 +153,3 @@ const Contact = () => {
 
 export default Contact
 
-function useState(arg0: string): [any, any] {
-    throw new Error('Function not implemented.');
-}
