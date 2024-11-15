@@ -13,12 +13,9 @@
 /.next/
 /out/
 
-package-lock.json
 # production
 /build
 
-bun.lockb
-pnpm-lock.yaml
 
 # misc
 .DS_Store
