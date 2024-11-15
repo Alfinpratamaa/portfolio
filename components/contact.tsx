@@ -1,3 +1,4 @@
+'use client'
 import { motion } from 'framer-motion';
 import React from 'react';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
@@ -12,7 +13,7 @@ const Contact = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        setStatus('Sending...');
+        setStatus('...');
 
         try {
             const response = await fetch('/api/contact', {
