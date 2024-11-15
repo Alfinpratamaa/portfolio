@@ -5,6 +5,40 @@ import Skills from '@/components/Skills';
 import AboutSection from '@/components/AboutSection';
 import { FaArrowDownLong } from "react-icons/fa6";
 
+export const metadata = {
+    title: 'About | evrea',
+    description: 'Frontendwith 1+ years of expertise. Junior Software Engineer. Specializing web apps, UX, and JavaScript technologies.',
+    keywords: [
+        'Developer',
+        'Portfolio',
+        'Developer Portflio',
+        'Muhamad Alfin Pratama',
+        'Next.js',
+        'React',
+        'ReactNative',
+        'Android',
+        'nodejs',
+        'alfin',
+        'alfin pratama',
+        'muhamad alfin',
+        'muhamad alfin pratama',
+        'muhammad alfin pratama',
+        'frontend web',
+        'Frontend Developer',
+        'Front-end Developer',
+        'Front End Developer',
+        'Frontend Engineer',
+        'Front-end Engineer',
+        'Front End Engineer',
+        'Muhamad Alfin',
+        'Alfin Pratama',
+        'Muhamad',
+        'Alfin',
+        'Pratama',
+        'evrea',
+    ],
+}
+
 const AboutPage: React.FC = () => {
     return (
         <main className='bg-black'>

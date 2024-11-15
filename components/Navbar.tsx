@@ -34,7 +34,7 @@ const Navbar: React.FC<{}> = () => {
     <div className="w-full h-[5px] bg-['#111'] fixed backdrop-blur-sm py-12 z-50 px-10">
       <motion.div variants={containerVariants} className="w-full h-full flex flex-row items-center justify-between px-[10px]">
         <Link
-          title="Alfin logo"
+          title="Evrea logo"
           href="/"
           className="h-auto w-auto flex flex-row items-center"
         >

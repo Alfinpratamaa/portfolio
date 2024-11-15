@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://alfinpratamaa.github.io/"),
-  title: "Muhamad Alfin Pratama",
+  title: "Evrea",
   description:
     "Frontendwith 1+ years of expertise. Junior Software Engineer. Specializing web apps, UX, and JavaScript technologies.",
   keywords: [
@@ -39,19 +39,20 @@ export const metadata: Metadata = {
     "Muhamad",
     "Alfin",
     "Pratama",
+    "evrea",
 
   ],
   creator: "Muhamad Alfin Pratama",
-  applicationName: "Muhamad Alfin Pratama",
+  applicationName: "evrea",
   icons: "/avatar_2.jpeg",
   openGraph: {
-    title: "Muhamad Alfin Pratama",
+    title: "evrea",
     description:
       "Frontendwith 1+ years of expertise. Junior Software Engineer. Specializing web apps, UX, and JavaScript technologies.",
     images: "/Me.png",
   },
   alternates: {
-    canonical: "https://muhamadalfinpratama.vercel.app",
+    canonical: "https://evrea.tech",
   },
 };
 
