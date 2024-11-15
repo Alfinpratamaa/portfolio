@@ -3,39 +3,49 @@
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const ContactPage = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [subject, setSubject] = useState('');
-    const [message, setMessage] = useState('');
+
+    const router = useRouter();
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
     const [status, setStatus] = useState('');
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        setStatus('Sending...');
+        const { name, email, subject, message } = formData;
+        const mailtoLink = `mailto:muhamadalfinpratamaa@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage: \n\n${message}`
+        )}`;
 
-        try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, subject, message }),
-            });
+        setStatus('Redirecting to send email...');
 
-            const data = await response.json();
-            setStatus(data.message);
-        } catch (error) {
-            console.error('Error sending email:', error);
-            setStatus('Error sending email');
-        } finally {
-            // Reset form state (optional)
-            setName('');
-            setEmail('');
-            setSubject('');
-            setMessage('');
-        }
+        router.push(mailtoLink);
+
+        // Reset form (optional)
+        setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+        });
     };
+
     return (
         <main className="bg-black h-screen flex justify-center items-center">
             <div className="relative flex items-top justify-center z-[1] bg-black min-h-screen sm:items-center sm:pt-0">
@@ -95,7 +105,8 @@ const ContactPage = () => {
                                         type="text"
                                         name="name"
                                         id="name"
-                                        onChange={(e) => setName(e.target.value)}
+                                        value={formData.name}
+                                        onChange={handleInputChange}
                                         placeholder="Full Name"
                                         className="w-full mt-2 py-3 px-3 rounded-lg bg-transparent border border-white text-white placeholder-gray-400 font-semibold focus:border-indigo-500 focus:outline-none"
                                     />
@@ -107,8 +118,9 @@ const ContactPage = () => {
                                         type="email"
                                         name="email"
                                         id="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
                                         placeholder="Email"
-                                        onChange={(e) => setEmail(e.target.value)}
                                         className="w-full mt-2 py-3 px-3 rounded-lg bg-transparent border border-white text-white placeholder-gray-400 font-semibold focus:border-indigo-500 focus:outline-none"
                                     />
                                 </div>
@@ -119,8 +131,9 @@ const ContactPage = () => {
                                         type="text"
                                         name="subject"
                                         id="subject"
+                                        value={formData.subject}
+                                        onChange={handleInputChange}
                                         placeholder="Subject Email"
-                                        onChange={(e) => setSubject(e.target.value)}
                                         className="w-full mt-2 py-3 px-3 rounded-lg bg-transparent border border-white text-white placeholder-gray-400 font-semibold focus:border-indigo-500 focus:outline-none"
                                     />
                                 </div>
@@ -130,8 +143,9 @@ const ContactPage = () => {
                                     <textarea
                                         name="message"
                                         id="message"
+                                        value={formData.message}
+                                        onChange={handleInputChange}
                                         placeholder="Message"
-                                        onChange={(e) => setMessage(e.target.value)}
                                         className="w-full mt-2 py-3 px-3 rounded-lg bg-transparent border border-white text-white placeholder-gray-400 font-semibold focus:border-indigo-500 focus:outline-none h-32"
                                     />
                                 </div>
@@ -142,7 +156,7 @@ const ContactPage = () => {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                 >
-                                    {status || 'send'}
+                                    {status || 'Send'}
                                 </motion.button>
                             </motion.form>
                         </div>
