@@ -1,7 +1,7 @@
 import type { SiteConfig } from '$src/types/Config';
 
 const config: SiteConfig = {
-  title: 'Alfin Pratama',
+  title: 'Muhamad Alfin Pratama',
   description: '',
   additionalFeeds: [
     {
@@ -9,7 +9,7 @@ const config: SiteConfig = {
       url: '',
     },
   ],
-  source: 'https://github.com/AlfinPratamaa/evrea.tech',
+  source: 'https://github.com/AlfinPratamaa/portfolio',
   baseUrl: 'https:/evrea.tech',
   initialFeeds: [
     {
@@ -30,13 +30,13 @@ const config: SiteConfig = {
       label: 'Blog',
       route: '/blog',
       color: 'var(--accent-2, #b45eff)',
-      description: 'Published articles, notes, tutorials and updates',
+      description: 'currently empty',
     },
     {
       label: 'Contact',
       route: '/contact',
       color: 'var(--accent-1, #ff0099)',
-      description: 'Social profile links, GPG keys and contact form',
+      description: 'Social profile links and contact form',
     },
   ],
   footerInfo: {
@@ -233,7 +233,7 @@ const config: SiteConfig = {
     { postRef: '', thumbnail: '' },
   ],
   contact: {
-    name: 'Alfin Pratama',
+    name: 'Muhamad Alfin Pratama',
     email: 'muhamadalfinpratamaa@gmail.com',
     website: 'https://evrea.tech',
     socials: {
