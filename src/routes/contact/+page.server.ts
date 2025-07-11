@@ -159,7 +159,9 @@ export const _getKeybaseInfo = async (username: string) => {
     .catch(() => []);
 };
 
-export const load = async () => {
+export const load = async (p0: {
+  fetch: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
+}) => {
   const {
     // Get usernames from config
     GitHub: githubUn,
