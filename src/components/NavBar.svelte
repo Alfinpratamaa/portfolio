@@ -52,6 +52,14 @@
   {#if isMenuOpen}
     <div class="overlay" on:click={closeMenu}>
       <div class="mobile-menu" on:click|stopPropagation>
+        <!-- Tombol Close -->
+        <button
+          class="close-button"
+          on:click={closeMenu}
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
         {#each routeLinks as navLink}
           <a
             href={navLink.route}
@@ -157,6 +165,24 @@
     flex-direction: column;
     gap: 1rem;
     box-shadow: -4px 0 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--foreground);
+      cursor: pointer;
+      z-index: 1001;
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
 
     a {
       font-size: 1.1rem;

@@ -99,7 +99,6 @@
   </div>
   <div class="filter-controls">
     <SearchBar bind:searchInputRef />
-    <DropDown />
   </div>
 </div>
 
