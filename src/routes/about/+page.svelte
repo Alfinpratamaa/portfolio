@@ -12,11 +12,17 @@
   const morePages = config.routeLinks.filter(
     (link) => !['/about', '/'].includes(link.route)
   );
+
+  // Function to handle CV button click
+  const handleCVClick = () => {
+    window.open('/cv-alfin.pdf', '_blank');
+  };
 </script>
 
 <!-- Page title -->
 <div class="heading">
   <Heading level="h2" size="2.5rem">{$t('pages.about')}</Heading>
+  <button on:click={handleCVClick}>See My CV</button>
 </div>
 
 <!-- Bio paragraphs -->
@@ -33,7 +39,9 @@
     <img src={picture} alt="Users profile" />
     <div class="pages">
       {#each morePages as page}
-        <a href={page.route} style={`--page-color: ${page.color};`}>{page.label}</a>
+        <a href={page.route} style={`--page-color: ${page.color};`}
+          >{page.label}</a
+        >
       {/each}
     </div>
   </section>
@@ -45,17 +53,16 @@
 
   <!-- Technology Stack -->
   <section class="stack">
-    <TechStack/>
+    <TechStack />
   </section>
 
   <!-- Social links -->
   <!-- <section class="soclials"></section> -->
-  
+
   <!-- CV -->
   <section class="resume">
     <Resume />
   </section>
-
 </div>
 
 <style lang="scss">
@@ -66,6 +73,23 @@
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      padding: 0.5rem 1rem;
+      background: #00ccb4;
+      color: var(--background);
+      border: none;
+      border-radius: var(--curve-factor);
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #00ccb480;
+      }
+    }
   }
 
   .content {
@@ -161,5 +185,4 @@
       grid-column-start: span 2;
     }
   }
-
 </style>

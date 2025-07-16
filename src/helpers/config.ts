@@ -240,7 +240,7 @@ const config: SiteConfig = {
       GitHub: 'AlfinPratamaa',
       LinkedIn: 'in/alfinpr',
       Instagram: 'visfiveor5',
-      YouTube: 'muhamadalfinpratamaa',
+      WhatsApp: '+6285864746352',
     },
     socialButtonLimit: 6,
     mailerConfig: {

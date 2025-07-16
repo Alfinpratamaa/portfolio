@@ -1,11 +1,63 @@
+@import 'media-queries';
+
 :root {
-  // Grid dimensions
-  --grid-item-width: 20rem;
-  --grid-item-min-height: 3.5rem;
-  --grid-item-max-height: 5rem;
-  --grid-item-spacing: 1rem;
-  --grid-max-width: 100rem;
+  // Grid dimensions - mobile first
+  --grid-item-width: 100%;
+  --grid-item-min-height: 3rem;
+  --grid-item-max-height: 4rem;
+  --grid-item-spacing: 0.75rem;
+  --grid-max-width: 100%;
 
   // Border radius amounts
-  --curve-factor: 4px;
+  --curve-factor: 3px;
+
+  // Very tiny phones (< 400px)
+  @include very-tiny-phone {
+    --grid-item-spacing: 0.5rem;
+    --grid-item-min-height: 2.5rem;
+    --grid-item-max-height: 3.5rem;
+    --curve-factor: 2px;
+  }
+
+  // Phones (400px - 599px)
+  @include phone {
+    --grid-item-width: calc(50% - 0.5rem);
+    --grid-item-spacing: 0.75rem;
+  }
+
+  // Tablets (600px - 779px)
+  @include tablet {
+    --grid-item-width: calc(33.333% - 0.67rem);
+    --grid-item-spacing: 1rem;
+    --grid-max-width: 95%;
+  }
+
+  // Laptops (780px - 1149px)
+  @include laptop {
+    --grid-item-width: 18rem;
+    --grid-item-min-height: 3.25rem;
+    --grid-item-max-height: 4.5rem;
+    --grid-item-spacing: 1rem;
+    --grid-max-width: 90rem;
+    --curve-factor: 4px;
+  }
+
+  // Monitors (1150px - 1779px)
+  @include monitor {
+    --grid-item-width: 20rem;
+    --grid-item-min-height: 3.5rem;
+    --grid-item-max-height: 5rem;
+    --grid-item-spacing: 1rem;
+    --grid-max-width: 100rem;
+  }
+
+  // Large screens (1780px+)
+  @include big-screen {
+    --grid-item-width: 22rem;
+    --grid-item-min-height: 4rem;
+    --grid-item-max-height: 5.5rem;
+    --grid-item-spacing: 1.25rem;
+    --grid-max-width: 120rem;
+    --curve-factor: 6px;
+  }
 }

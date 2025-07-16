@@ -19,3 +19,40 @@
   font-weight: 300 700;
   font-style: normal;
 }
+
+// Responsive typography
+html {
+  font-size: 16px;
+
+  @media (max-width: 400px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 600px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 780px) {
+    font-size: 17px;
+  }
+
+  @media (min-width: 1150px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1780px) {
+    font-size: 20px;
+  }
+}
+
+body {
+  line-height: 1.6;
+
+  @media (max-width: 400px) {
+    line-height: 1.5;
+  }
+
+  @media (min-width: 1780px) {
+    line-height: 1.7;
+  }
+}

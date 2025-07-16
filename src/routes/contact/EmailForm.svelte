@@ -151,36 +151,47 @@
       opacity: 0.8;
     }
   }
+
   form {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    min-width: 500px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+
     .user-deets {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       margin-bottom: 1rem;
+
       .input-group {
-        flex: 1;
-        width: 200px;
+        flex: 1 1 45%;
         display: flex;
-        align-items: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 0.25rem;
+        }
+
         input {
           width: 100%;
         }
       }
     }
+
     .response-info {
       background: var(--card-background);
       border-radius: var(--curve-factor);
       padding: 1rem;
       text-align: center;
+
       p {
         font-size: 1.25rem;
         margin: 0.5rem;
         font-weight: bold;
+
         &.success {
           color: var(--success);
         }
@@ -188,13 +199,19 @@
           color: var(--error);
         }
       }
+
       button {
         background: none;
         border: none;
         font-size: 0.75rem;
         margin: 0;
+        cursor: pointer;
+        &:hover {
+          color: var(--accent);
+        }
       }
     }
+
     input,
     textarea,
     button {
@@ -202,29 +219,45 @@
       border: var(--card-border);
       color: var(--foreground);
       border-radius: 4px;
-      font-size: 1.25rem;
-      padding: 0.25rem 0.5rem;
+      font-size: 1.1rem;
+      padding: 0.5rem;
       margin: 0.5rem 0;
       font-family: FiraCode, monospace;
       transition: all ease-in-out 0.25s;
+
       &:focus {
         outline: none;
         box-shadow: 1px 1px 8px #ff00994a;
       }
     }
+
     textarea {
       resize: vertical;
       min-height: 5rem;
       max-height: 15rem;
     }
-    label {
-      margin-right: 0.5rem;
-    }
+
     button {
       cursor: pointer;
+      font-weight: bold;
       &:hover {
         background: var(--accent);
         color: var(--card-background);
+      }
+    }
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    form {
+      padding: 1rem;
+
+      .user-deets {
+        flex-direction: row;
+
+        .input-group {
+          flex: 1 1 100%;
+        }
       }
     }
   }
