@@ -1,93 +1,163 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Frontend_skill, Skill_data, android_skill, ml_skills, tools } from "@/libs/constant";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Frontend_skill, Backend_Skill, tools } from "@/libs/constant";
 
-const skillVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            duration: 0.5,
-        },
-    },
-};
-
-const SkillData = ({ src, width, height, alt }: any) => (
-    <motion.div
-        className="flex flex-col items-center"
-        variants={skillVariants}
-        initial="hidden"
-        animate="visible"
-        whileHover="infinite"
-    >
-        <Image src={src} width={width} height={height} alt={alt} className="rounded-md animate-bounce" />
-        <p className="mt-2 text-white text-center text-sm">{alt}</p>
-    </motion.div>
-);
-
-const categoryVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.2, // Interval waktu antar anak
-        },
-    },
-};
+const categories = [
+  {
+    title: "Frontend",
+    data: Frontend_skill,
+    color: "from-green-500/20 to-teal-500/20",
+  },
+  {
+    title: "Backend",
+    data: Backend_Skill,
+    color: "from-blue-500/20 to-purple-500/20",
+  },
+  { title: "Tools", data: tools, color: "from-orange-500/20 to-red-500/20" },
+];
 
 const Skills = () => {
-    const skillsCategories = [
-        { title: "General Skills", data: Skill_data },
-        { title: "Frontend Skills", data: Frontend_skill },
-        { title: "Tools", data: tools },
-        { title: "Android Skills", data: android_skill },
-        { title: "Aditional Skills", data: ml_skills },
-    ];
-
-    return (
-        <motion.section
-            id='skills'
-            className='flex flex-col items-center bg-transparent justify-center gap-6 py-20 px-4'
-            style={{ transform: "scale(0.9)" }}
-            initial="hidden"
-            animate="visible"
-            variants={categoryVariants}
+  return (
+    <div className="w-full max-w-7xl mx-auto px-4">
+      <div className="text-center mb-12">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-4"
         >
-            <motion.h1
-                className="font-bold text-4xl lg:text-6xl mt-1 text-white text-center"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                Skills
-            </motion.h1>
-            {skillsCategories.map((category, index) => (
-                <div key={index} className="flex flex-col items-center mt-6">
-                    <motion.h2
-                        className="font-semibold text-2xl text-white"
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
+          Technical Skills
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-gray-400 text-lg max-w-2xl mx-auto"
+        >
+          Technologies and tools I work with
+        </motion.p>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        {categories.map((cat, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              duration: 0.6,
+              delay: i * 0.1,
+              type: "spring",
+              stiffness: 100,
+            }}
+            viewport={{ once: true }}
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.2 },
+            }}
+            className={`
+                            relative overflow-hidden
+                            bg-gradient-to-br ${cat.color}
+                            backdrop-blur-xl 
+                            border border-white/10
+                            rounded-3xl p-8
+                            shadow-2xl shadow-black/20
+                            hover:shadow-3xl hover:shadow-black/30
+                            transition-all duration-300
+                        `}
+          >
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full translate-y-12 -translate-x-12"></div>
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              {/* Category Header */}
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xl font-bold text-white">{cat.title}</h3>
+                <div className="w-8 h-1 bg-gradient-to-r from-white/50 to-transparent rounded-full"></div>
+              </div>
+
+              {/* Skills Grid */}
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-6">
+                {cat.data.map((skill, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: i * 0.1 + idx * 0.05,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      scale: 1.1,
+                      y: -5,
+                      transition: { duration: 0.2 },
+                    }}
+                    className="group"
+                  >
+                    <div
+                      className="
+                                            flex flex-col items-center text-center
+                                            p-3 rounded-2xl
+                                            
+                                            transition-all duration-300
+                                            cursor-pointer
+                                        "
                     >
-                        {category.title}
-                    </motion.h2>
-                    <motion.div
-                        className="flex flex-row justify-center flex-wrap mt-4 gap-5 items-center"
-                        variants={categoryVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        {category.data.map((skill, skillIndex) => (
-                            <SkillData key={skillIndex} src={skill.Image} width={60} height={60} alt={skill.skill_name} />
-                        ))}
-                    </motion.div>
-                </div>
-            ))}
-        </motion.section>
-    );
+                      <div
+                        className="
+                                                relative w-12 h-12 mb-3
+                                                flex items-center justify-center
+                                                bg-white/10 rounded-xl
+                                                group-hover:bg-white/20
+                                                transition-all duration-300
+                                            "
+                      >
+                        <Image
+                          src={skill.Image}
+                          width={32}
+                          height={32}
+                          alt={skill.skill_name}
+                          className="object-contain filter group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                      <p
+                        className="
+                                                text-xs font-medium text-gray-300 
+                                                group-hover:text-white
+                                                transition-colors duration-300
+                                                leading-tight
+                                            "
+                      >
+                        {skill.skill_name}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Skills Count */}
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <p className="text-xs text-gray-400 text-center">
+                  {cat.data.length} skills
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Skills;

@@ -26,58 +26,65 @@ export const Social_Icons = [
   },
 ];
 
-export const Skill_data = [
+export const Backend_Skill = [
   {
-    skill_name: "Html 5",
-    Image: "/html.png",
+    skill_name: "Node.js",
+    Image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "VS Code",
-    Image: "/vscode.png",
+    skill_name: "Express.js",
+    Image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Postman",
-    Image: "/postman.png",
+    skill_name: "NestJS",
+    Image: "https://img.jsdelivr.com/github.com/nestjs.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Tailwind Css",
-    Image: "/tailwind.png",
+    skill_name: "Golang",
+    Image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Kotlin",
-    Image: "/kotlin.svg",
+    skill_name: "PHP",
+    Image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Android Studio",
-    Image: "/androidstudio.png",
+    skill_name: "Laravel",
+    Image: "https://www.svgrepo.com/show/353985/laravel.svg",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Python",
-    Image: "/python.png",
+    skill_name: "PostgreSQL",
+    Image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Next js",
-    Image: "/Next.js.png",
+    skill_name: "MySQL",
+    Image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Framer Motion",
-    Image: "/framer.png",
+    skill_name: "MongoDB",
+    Image:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
     width: 80,
     height: 80,
   },
@@ -167,58 +174,37 @@ export const tools = [
   },
 ];
 
-export const android_skill = [
-  {
-    skill_name: "Java",
-    Image: "/java.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Kotlin",
-    Image: "/kotlin.svg",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Android Studio",
-    Image: "/androidstudio.png",
-    width: 80,
-    height: 80,
-  },
-];
-
-export const ml_skills = [
-  {
-    skill_name: "Python",
-    Image: "/python.png",
-    width: 80,
-    height: 80,
-  },
-];
-
 export const project_data = [
   {
-    title: "Comics Reader Bahasa Indonesia",
+    title: "Mangaloomp (Comics Reader)",
     description:
-      "Aplikasi pembaca komik bahasa indonesia yang dibuat menggunakan next js dan tailwind css dan menggunakan api yang dibuat sendiri melalui scrapping web (server project ini tidak berjalan, karena server project ini hanya berjalan di local server saya).",
-    image: "/mangap.png",
-    linkDemo: "https://mangapp.me",
-    linkGithub: "https://github.com/Alfinpratamaa/mangap",
-    date: "March 2024 - May 2024",
+      "Mangaloom is a web application for reading manga online. Built with Next.js and Tailwind CSS, it features a clean UI, search functionality, and a vast collection of manga titles.",
+    image: "/mangaloom.png",
+    linkDemo: "https://mangaloom.app",
+    linkGithub: "https://github.com/Mangaloom/web",
+    date: "March 2024 - Present",
+  },
+  {
+    title: "E-Commerce Book Store",
+    description:
+      "An e-commerce website for books built with Laravel + Livewire and Tailwind CSS. Features include product browsing, shopping cart, user authentication, and admin panel for managing products and orders.",
+    image: "/ngabaca.png",
+    linkDemo: "https://ngabaca.me",
+    linkGithub: "https://github.com/Alfinpratamaa/ngabaca",
+    date: "June 2025 - August 2025",
   },
   {
     title: "Selfgalery Web Apps",
     description:
-      " Aplikasi galeri foto yang dibuat menggunakan next js dan tailwind css berfungsi untuk menyimpan foto-foto. bisa upload, delete, dan download foto.",
+      "Photo gallery application built with Next.js and Tailwind CSS for storing photos. Features upload, delete, and download functionality.",
     image: "/selfgalery.png",
     linkDemo: "https://selfgalery.vercel.app/",
     linkGithub: "https://github.com/Alfinpratamaa/selfgalery",
-    date: "january 2024 - february 2024",
+    date: "January 2024 - February 2024",
   },
   {
     title: "Portfolio",
-    description: "Portfolio ini dibuat menggunakan next js dan tailwind css",
+    description: "Personal portfolio built with Next.js and Tailwind CSS",
     image: "/portfolio.png",
     linkDemo: "https://muhamadalfinpratama.vercel.app/",
     linkGithub: "https://github.com/Alfinpratamaa/portfolio",

@@ -8,12 +8,11 @@ export const NavbarLinks = [
     href: "/about",
   },
   {
-    text: "Projects",
-    href: "/projects",
+    text: "Blogs",
+    href: "/blogs",
   },
   {
     text: "Contact Me",
     href: "/contact",
   },
 ];
-

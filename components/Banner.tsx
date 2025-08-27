@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import React from "react";
 import Image from "next/image";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ReactTypingEffect from 'react-typing-effect';
+import ReactTypingEffect from "react-typing-effect";
 
 const Banner: React.FC<{}> = () => {
   const containerVariants = {
@@ -19,107 +19,150 @@ const Banner: React.FC<{}> = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.7 } },
   };
 
   const typingTexts = [
     {
-      first: "Muhamad Alfin",
-      second: "Pratama",
-    },
-    {
-      first: "Student",
-      second: "at Universitas Teknologi Bandung",
-    },
-    {
-      first: "Frontend",
+      first: "Fullstack",
       second: "Developer",
     },
     {
-      first: "Tech",
-      second: "Enthusiast",
+      first: "Devops",
+      second: "Engineer",
     },
   ];
 
-  const texts = typingTexts.map(item => `${item.first} ${item.second}`);
+  const texts = typingTexts.map((item) => `${item.first} ${item.second}`);
 
   return (
     <motion.section
-      className="flex flex-col md:flex-row items-center justify-center gap-8 px-5 md:px-20 min-h-screen mt-[5px] text-center md:text-left"
+      className="flex items-center justify-center min-h-screen px-4 py-10"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <Image
-        priority
-        src="/avatar_2.jpeg"
-        height={250}
-        width={250}
-        alt="Alfin"
-        className="rounded-full cursor-pointer hover:animate-spin hover:duration-200 mt-[120px] md:-mt-[70px]"
-      />
-
-      {/* Container untuk konten */}
-      <motion.aside
-        className="flex flex-col gap-6 md:mt-0 mt-8 tracking-tighter text-white max-w-[600px]"
-        variants={itemVariants}
+      <motion.div
+        className="bg-neutral-900/40 backdrop-blur-sm border border-neutral-700/30 rounded-3xl p-8 md:p-12 max-w-4xl w-full shadow-2xl"
+        variants={cardVariants}
       >
-        <div className="text-5xl font-semibold animate-bounce">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-orange-400">Hi,</span> I am
-        </div>
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          {/* Profile Image Card */}
+          <motion.div className="flex-shrink-0" variants={itemVariants}>
+            <div className="bg-neutral-700/50 p-6 rounded-2xl backdrop-blur-sm border border-neutral-600/30">
+              <Image
+                priority
+                src="/avatar_2.jpeg"
+                height={220}
+                width={220}
+                alt="Alfin"
+                className="rounded-xl hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          </motion.div>
 
-        <div className="flex mx-auto md:mx-0 items-center gap-4">
-          <div className="text-2xl font-medium tracking-tighter text-gray-300">
-            <ReactTypingEffect
-              text={texts}
-              speed={100}
-              eraseSpeed={25}
-              typingDelay={800}
-              eraseDelay={1000}
-              displayTextRenderer={(text, i) => {
-                const [first, ...rest] = text.split(" ");
-                const second = rest.join(" ");
-                return (
-                  <>
-                    <span>{first}</span>
-                    {" "}
-                    <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-500 to-orange-400">
-                      {second}
-                    </span>
-                  </>
-                );
-              }}
-            />
-          </div>
-          <Image src="/popcorn.gif" height={50} width={50} alt="chill" />
-        </div>
-
-        <p className="text-lg text-gray-200 my-5">
-          Passionate Frontend Web with a focus on <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-500 to-orange-400">React.js</span> development using <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-500 to-orange-400">Next.js</span> framework,
-          dedicated to crafting elegant and user-friendly web applications.
-        </p>
-
-        <motion.div variants={itemVariants} className="flex mx-auto flex-col md:flex-row justify-center md:justify-start items-center gap-4">
-          <motion.button
-            className="z-[1] items-center animate-bounce justify-center w-full md:w-auto px-6 py-1 text-white font-semibold bg-transparent hover:bg-white hover:text-black border border-white rounded-3xl transition-all duration-300"
+          {/* Content Card */}
+          <motion.div
+            className="flex-1 space-y-6 text-center lg:text-left"
             variants={itemVariants}
           >
-            <Link download={'/cv-alfin.pdf'} href={"/cv-alfin.pdf"}>
-              Download CV <FaCloudDownloadAlt className="mx-auto" />
-            </Link>
-          </motion.button>
-          <motion.button
-            type="button"
-            className="z-[1] w-full md:w-auto py-3 px-6 bg-white text-black font-semibold rounded-3xl hover:bg-white/90 transition-all duration-300 md:mb-0 mb-20"
-            variants={itemVariants}
-          >
-            <Link href={"/projects"}>
-              See My Project
-            </Link>
-          </motion.button>
-        </motion.div>
-      </motion.aside>
+            {/* Greeting */}
+            <motion.div className="space-y-2" variants={itemVariants}>
+              <h1 className="text-4xl md:text-5xl font-bold text-white">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-orange-400">
+                  Hi,
+                </span>{" "}
+                I'm Alfin
+              </h1>
+            </motion.div>
+
+            {/* Typing Effect Card */}
+            <motion.div
+              className="bg-neutral-700/30 rounded-xl p-4 border border-neutral-600/20"
+              variants={itemVariants}
+            >
+              <div className="flex items-center justify-center lg:justify-start gap-3">
+                <div className="text-xl md:text-2xl font-medium text-gray-200">
+                  <ReactTypingEffect
+                    text={texts}
+                    speed={100}
+                    eraseSpeed={25}
+                    typingDelay={800}
+                    eraseDelay={1000}
+                    displayTextRenderer={(text, i) => {
+                      const [first, ...rest] = text.split(" ");
+                      const second = rest.join(" ");
+                      return (
+                        <>
+                          <span className="text-white">{first}</span>{" "}
+                          <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-orange-400">
+                            {second}
+                          </span>
+                        </>
+                      );
+                    }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Description */}
+            <motion.div
+              className="bg-neutral-700/20 rounded-xl p-5 border border-neutral-600/20"
+              variants={itemVariants}
+            >
+              <p className="text-base md:text-lg text-gray-200 leading-relaxed">
+                Passionate Fullstack Developer with a focus on{" "}
+                <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-orange-400">
+                  React.js,php,golang,nodejs
+                </span>{" "}
+                development using{" "}
+                <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-orange-400">
+                  Next.js,laravel,gofiber,expressjs
+                </span>{" "}
+                framework, dedicated to crafting elegant and user-friendly web
+                applications.
+              </p>
+            </motion.div>
+
+            {/* Action Buttons */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 pt-4"
+              variants={itemVariants}
+            >
+              <motion.button
+                className="group relative overflow-hidden bg-gradient-to-r from-purple-500 to-orange-400 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  download={"/cv-alfin.pdf"}
+                  href={"/cv-alfin.pdf"}
+                  className="flex items-center justify-center gap-2"
+                >
+                  Download CV <FaCloudDownloadAlt />
+                </Link>
+              </motion.button>
+
+              <motion.button
+                className="bg-neutral-700/50 backdrop-blur-sm border border-neutral-600/30 text-white font-semibold px-6 py-3 rounded-xl hover:bg-neutral-600/50 transition-all duration-300"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link href={"/projects"}>See My Projects</Link>
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.div>
     </motion.section>
   );
 };

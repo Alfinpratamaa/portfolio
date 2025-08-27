@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
 import StarsCanvas from "../components/BackgroundStar";
 import Navbar from "@/components/Navbar";
+import { NebulaEffect } from "@/components/NebulaEffect";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     "Muhamad",
     "Alfin",
     "Pratama",
-
   ],
   creator: "Muhamad Alfin Pratama",
   applicationName: "Muhamad Alfin Pratama",
@@ -66,14 +65,16 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/avatar_2.jpeg" />
       </head>
       <body
-        className={`${inter.className} bg-black min-h-screen overflow-y-scroll overflow-x-hidden`}
+        className={`${inter.className} min-h-screen overflow-y-scroll overflow-x-hidden relative bg-black`}
       >
-        <Analytics />
         <StarsCanvas />
-        <div className="mb-[10px]">
-        <Navbar />
+        <NebulaEffect />
+        <div className="relative z-[2]">
+          <div className="mb-[10px]">
+            <Navbar />
+          </div>
+          {children}
         </div>
-        {children}
       </body>
     </html>
   );

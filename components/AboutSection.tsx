@@ -1,113 +1,209 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FaGithub, FaInstagram, FaLinkedin, FaLocationDot, FaTelegram, FaWhatsapp } from 'react-icons/fa6';
-import { MdOutlineWork } from 'react-icons/md';
-import { motion } from 'framer-motion';
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaLocationDot,
+  FaTelegram,
+  FaWhatsapp,
+  FaCalendar,
+} from "react-icons/fa6";
+import { MdOutlineWork } from "react-icons/md";
+import Skills from "./Skills";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { ProjectsSection } from "./ProjectSection";
+
+// Data untuk media sosial
+const socials = [
+  { icon: <FaInstagram />, href: "https://www.instagram.com/visfiveor5" },
+  { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/alfinpr" },
+  { icon: <FaGithub />, href: "https://www.github.com/Alfinpratamaa" },
+  { icon: <FaWhatsapp />, href: "https://wa.me/6285175369960" },
+  { icon: <FaTelegram />, href: "https://t.me/visfiveor5" },
+];
 
 const AboutSection = () => {
-    const socials = [
-        {
-            icon: <FaInstagram />,
-            href: "https://www.instagram.com/visfiveor5"
-        },
-        {
-            icon: <FaLinkedin />,
-            href: "https://www.linkedin.com/in/alfinpr"
-        },
-        {
-            icon: <FaGithub />,
-            href: "https://www.github.com/Alfinpratamaa"
-        },
-        {
-            icon: <FaWhatsapp />,
-            href: "https://wa.me/6285175369960"
-        },
-        {
-            icon: <FaTelegram />,
-            href: "https://t.me/visfiveor5"
-        }
-    ];
+  // Varian animasi untuk container utama (stagger effect)
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1, // Setiap anak akan muncul dengan jeda 0.1 detik
+      },
+    },
+  };
 
-    const containerVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                when: "beforeChildren",
-                staggerChildren: 0.3,
-            },
-        },
-    };
+  // Varian animasi untuk setiap item di dalam grid
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-    };
+  return (
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      {/* ======================================= */}
+      {/* KARTU 1: PROFIL UTAMA                 */}
+      {/* ======================================= */}
+      <motion.div
+        className="col-span-full md:col-span-2 row-span-2 bg-neutral-900/50 border border-neutral-700 rounded-xl p-6 flex flex-col md:flex-row items-center gap-6"
+        variants={itemVariants}
+      >
+        <div className="flex-shrink-0">
+          <Image
+            src="/Me.png"
+            alt="Muhamad Alfin Pratama"
+            width={120}
+            height={120}
+            className="rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+          />
+        </div>
+        <div className="text-center md:text-left">
+          <h1 className="text-2xl font-bold text-white">
+            Muhamad Alfin Pratama
+          </h1>
+          <div className="relative mx-auto md:mx-0 w-3/4 mt-2 mb-3">
+            <div className="absolute inset-0 h-0.5 bg-gradient-to-r from-purple-500 to-orange-400"></div>
+          </div>
+          <div className="flex items-center justify-center md:justify-start space-x-2 mt-4">
+            <MdOutlineWork className="text-purple-400" />
+            <p className="text-sm font-semibold text-white">
+              Student | Frontend Web
+            </p>
+          </div>
+          <div className="flex items-center justify-center md:justify-start space-x-2 mt-2">
+            <FaLocationDot className="text-orange-400" />
+            <p className="text-xs text-gray-400">
+              Bandung, West Java, Indonesia
+            </p>
+          </div>
+        </div>
+      </motion.div>
 
-    const imageVariants = {
-        hover: { scale: 1.1, filter: 'grayscale(0%)', transition: { duration: 0.5 } },
-    };
+      {/* ======================================= */}
+      {/* KARTU 2: DESKRIPSI DIRI               */}
+      {/* ======================================= */}
+      <motion.div
+        className="col-span-full md:col-span-1 lg:col-span-2 bg-neutral-900/50 border border-neutral-700 rounded-xl p-6"
+        variants={itemVariants}
+      >
+        <p className="text-sm text-gray-300 leading-relaxed">
+          I am a frontend developer with expertise in React, Next.js, and
+          Tailwind CSS. Passionate about creating user-friendly interfaces and
+          delivering high-quality code. Let's work together!
+        </p>
+      </motion.div>
 
-    return (
-        <motion.section initial="hidden" animate="visible" variants={containerVariants}>
-            <div className="max-w-4xl mx-auto px-4 lg:px-0 flex items-center  h-auto lg:h-screen flex-wrap my-5 lg:my-0 text-white">
-                <motion.div
-                    id="profile"
-                    className="w-full lg:w-3/5 mt-[120px] justify-center z-[1] rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-transparent"
-                    variants={itemVariants}
-                >
-                    <div className="p-4 md:p-12 text-center lg:text-left flex flex-col lg:flex-row gap-10">
-                        <motion.div
-                            className="cursor-pointer mx-auto lg:mt-8 flex-none items-center justify-center shadow-xl h-48 w-48 bg-cover bg-center grayscale hover:grayscale-0 hover:scale-105 transition-all hover:duration-200"
-                            whileHover="hover"
-                            variants={imageVariants}
-                        >
-                            <Image src={'/Me.png'} alt={'alfin'} height={200} width={200} className='rounded-full' />
-                        </motion.div>
-                        <motion.div className='flex-none' variants={itemVariants}>
-                            <h1 className="text-3xl font-bold pt-8 lg:pt-0">Muhamad Alfin Pratama</h1>
-                            <div className="relative mx-auto lg:mx-0 w-4/5 pt-3">
-                                <div className="absolute inset-0 h-0.5 bg-gradient-to-r from-purple-500 to-orange-400"></div>
-                            </div>
-                            <div className="flex items-center space-x-2 mt-4">
-                                <MdOutlineWork className="w-4 h-4 text-grad from-purple-500 to-orange-400" />
-                                <p className="text-base font-bold">Student | Frontend Web</p>
-                            </div>
-                            <div className="flex items-center space-x-2 mt-2">
-                                <FaLocationDot className="h-4 w-4 text-grad from-purple-500 to-orange-400" />
-                                <p className="text-gray-400 text-xs lg:text-sm">Bandung city, West Java, Indonesia</p>
-                            </div>
-                            <p className="pt-8 text-sm">
-                                I am a frontend developer proficient in React, Next.js, and Tailwind CSS.<br />
-                                I have experience building responsive and interactive web applications.<br />
-                                I am passionate about creating user-friendly interfaces and delivering high-quality code.<br />
-                                Let's work together to bring your ideas to life!
-                            </p>
-                            <div className="pt-12 pb-8">
-                                <Link href={'/contact'}>
-                                <button className="bg-gradient-to-r from-purple-500 to-orange-400 hover:bg-gradient-to-r hover:from-purple-500/45 hover:to-orange-400/45 text-white font-bold py-2 px-4 rounded-full">
-                                    Get In Touch
-                                </button>
-                                </Link>
-                            </div>
-                            <motion.div className="pb-16 lg:pb-0 w-full mx-auto flex items-center justify-center lg:justify-start space-x-4" variants={itemVariants}>
-                                {socials.map((social, index) => (
-                                    <Link href={social.href} key={index} className='border-white hover:bg-white rounded-full border-b-2'>
-                                        <p className="bg-transparent cursor-pointer text-white hover:text-black rounded-full w-12 h-12 flex items-center justify-center">
-                                            {social.icon}
-                                        </p>
-                                    </Link>
-                                ))}
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </motion.div>
+      {/* ======================================= */}
+      {/* KARTU 3: MEDIA SOSIAL                 */}
+      {/* ======================================= */}
+      <motion.div
+        className="col-span-full md:col-span-1 lg:col-span-2 row-span-1 bg-neutral-900/50 border border-neutral-700 rounded-xl p-6 flex items-center justify-center"
+        variants={itemVariants}
+      >
+        <div className="flex items-center justify-center gap-4">
+          {socials.map((social, index) => (
+            <Link
+              href={social.href}
+              key={index}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors text-2xl"
+            >
+              {social.icon}
+            </Link>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* ======================================= */}
+      {/* KARTU 4: EXPERIENCE                   */}
+      {/* ======================================= */}
+      <motion.div
+        className="col-span-full lg:col-span-2 bg-neutral-900/50 border border-neutral-700 rounded-xl p-6"
+        variants={itemVariants}
+      >
+        <div className="flex items-center gap-3 mb-4">
+          <MdOutlineWork className="text-purple-400 text-xl" />
+          <h3 className="text-lg font-bold text-white">Experience</h3>
+        </div>
+        <div className="space-y-4">
+          <div className="border-l-2 border-purple-400 pl-4">
+            <div className="flex items-center gap-2 mb-2">
+              <h4 className="text-white font-semibold">
+                Frontend Developer Intern
+              </h4>
             </div>
-        </motion.section>
-    );
+            <div className="flex items-center gap-2 mb-2">
+              <Image
+                src="https://pilihjurusan.id/favicon.ico"
+                alt="Pilih Jurusan Logo"
+                width={16}
+                height={16}
+                className="rounded"
+              />
+              <Link
+                href="https://pilihjurusan.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-400 text-sm font-medium hover:text-orange-300 transition-colors"
+              >
+                Pilih Jurusan
+              </Link>
+            </div>
+            <div className="flex items-center gap-1 mb-3">
+              <FaCalendar className="text-gray-400 text-xs" />
+              <p className="text-gray-400 text-xs">
+                September 2024 - December 2024
+              </p>
+            </div>
+            <ul className="text-gray-300 text-sm space-y-2">
+              <li>
+                • Reorganized assets and components to improve code cleanliness
+                and reusability
+              </li>
+              <li>
+                • Adapted and implemented unit testing using Cypress according
+                to the latest code
+              </li>
+              <li>
+                • Developed new sections and pages based on project manager
+                requests
+              </li>
+              <li>
+                • Built CMS with Firebase integration and data interaction using
+                server actions in Next.js
+              </li>
+            </ul>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ======================================= */}
+      {/* KARTU 5: PROJECTS                     */}
+      {/* ======================================= */}
+      <ProjectsSection />
+
+      {/* ======================================= */}
+      {/* KARTU 6: SKILLS                       */}
+      {/* ======================================= */}
+      <motion.div
+        className="col-span-full row-span-2 bg-neutral-900/50 border border-neutral-700 rounded-xl p-6"
+        variants={itemVariants}
+      >
+        <Skills />
+      </motion.div>
+    </motion.div>
+  );
 };
 
 export default AboutSection;

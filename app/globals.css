@@ -36,3 +36,27 @@ body {
     text-wrap: balance;
   }
 }
+
+.custom-scrollbar {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #6b21a8 #262626; /* thumb, track */
+}
+
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* lebar scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #262626; /* warna track */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #6b21a8; /* warna thumb */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #9333ea; /* hover state */
+}
