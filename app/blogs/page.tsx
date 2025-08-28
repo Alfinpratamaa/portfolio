@@ -5,9 +5,6 @@ import { groq } from "next-sanity";
 import BlogClientPage from "@/components/BlogClientPage"; // Kita akan buat komponen ini
 import { Metadata } from "next";
 
-// Opsi: revalidate data setiap 1 jam
-export const revalidate = 3600;
-
 export const metadata: Metadata = {
   title: "Blog - Alfin Pratama",
   description:

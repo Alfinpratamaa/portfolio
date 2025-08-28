@@ -33,6 +33,7 @@ const ptComponents = {
             src={urlFor(value).url()}
             alt={value.alt || "Gambar dari artikel"}
             fill
+            priority
             className="object-contain"
           />
         </div>
