@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import ClientEffects from "@/components/ClientEffects";
+import { ClientProvider } from "@/provider/ClientProvicer";
+import CursorBackground from "@/components/CursorBacground";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -87,13 +89,16 @@ export default function RootLayout({
       <body
         className={`${poppins.className} min-h-screen overflow-y-scroll overflow-x-hidden relative bg-black`}
       >
-        <ClientEffects />
-        <div className="relative z-[2]">
-          <div className="mb-[10px]">
-            <Navbar />
+        <CursorBackground>
+          <ClientProvider />
+          <ClientEffects />
+          <div className="relative z-[2]">
+            <div className="mb-[10px]">
+              <Navbar />
+            </div>
+            {children}
           </div>
-          {children}
-        </div>
+        </CursorBackground>
       </body>
     </html>
   );

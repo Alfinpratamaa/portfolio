@@ -23,6 +23,7 @@
     "next": "^15.5.2",
     "next-sanity": "^10.0.15",
     "next-sitemap": "^4.2.3",
+    "nextjs-toploader": "^3.8.16",
     "nodemailer": "^7.0.5",
     "nodemailer-mailgun-transport": "^2.1.5",
     "react": "^19.1.1",
