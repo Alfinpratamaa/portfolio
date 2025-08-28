@@ -1,5 +1,3 @@
-// app/blogs/page.tsx
-
 import { client } from "@/libs/sanity.client";
 import { groq } from "next-sanity";
 import BlogClientPage from "@/components/BlogClientPage"; // Kita akan buat komponen ini
@@ -90,8 +88,24 @@ const categoriesQuery = groq`*[_type == "category"] | order(title asc) {
 // Jadikan halaman ini Server Component dengan fungsi async
 export default async function BlogPage() {
   // Ambil data di server
-  const posts: Post[] = await client.fetch(postsQuery);
-  const categories: Category[] = await client.fetch(categoriesQuery);
+  const posts: Post[] = await client.fetch(
+    postsQuery,
+    {},
+    {
+      next: {
+        revalidate: 60 * 60,
+      },
+    }
+  );
+  const categories: Category[] = await client.fetch(
+    categoriesQuery,
+    {},
+    {
+      next: {
+        revalidate: 60 * 60 * 24,
+      },
+    }
+  );
 
   // Kirim data sebagai props ke Client Component
   return <BlogClientPage posts={posts} categories={categories} />;
