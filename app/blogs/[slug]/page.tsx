@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { Metadata } from "next";
 
+export const runtime = "edge";
+
 const builder = imageUrlBuilder(client);
 function urlFor(source: any) {
   return builder.image(source);

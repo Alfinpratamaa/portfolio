@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+export const runtime = "edge";
+
 export const POST = async (req: Request) => {
   const transporter = nodemailer.createTransport({
     host: "smtp.mailgun.org",
