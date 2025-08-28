@@ -5,12 +5,7 @@ export default function PostContent({ post, ptComponents, urlFor }: any) {
   return (
     <section className="min-h-screen py-24 px-4 text-white">
       <div className="max-w-5xl mx-auto grid gap-6 md:grid-cols-3">
-        <div
-          className="col-span-full bg-neutral-900/50 border border-neutral-700 rounded-xl p-8"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
+        <div className="col-span-full bg-neutral-900/50 border border-neutral-700 rounded-xl p-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             {post.title}
           </h1>
@@ -27,12 +22,7 @@ export default function PostContent({ post, ptComponents, urlFor }: any) {
           )}
         </div>
 
-        <div
-          className="col-span-full md:col-span-2 bg-neutral-900/50 border border-neutral-700 rounded-xl p-8 prose prose-invert max-w-none"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="col-span-full md:col-span-2 bg-neutral-900/50 border border-neutral-700 rounded-xl p-8 prose prose-invert max-w-none">
           <PortableText value={post.body} components={ptComponents} />
         </div>
       </div>

@@ -1,21 +1,17 @@
 // app/blogs/[slug]/page.tsx
 
-import { client } from '@/libs/sanity.client';
-import imageUrlBuilder from '@sanity/image-url';
-import { groq } from 'next-sanity';
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import { PortableText } from '@portabletext/react';
+import { client } from "@/libs/sanity.client";
+import imageUrlBuilder from "@sanity/image-url";
+import { groq } from "next-sanity";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { PortableText } from "@portabletext/react";
 
 // Helper untuk gambar, sama seperti sebelumnya
 const builder = imageUrlBuilder(client);
 function urlFor(source: any) {
   return builder.image(source);
 }
-
-type Props = {
-  params: { slug: string };
-};
 
 // Query untuk mengambil satu post berdasarkan slug-nya
 const postQuery = groq`*[_type == "post" && slug.current == $slug][0] {
@@ -37,7 +33,7 @@ const ptComponents = {
         <div className="relative w-full h-96 my-8">
           <Image
             src={urlFor(value).url()}
-            alt={value.alt || 'Gambar dari artikel'}
+            alt={value.alt || "Gambar dari artikel"}
             fill
             className="object-contain"
           />
@@ -46,24 +42,42 @@ const ptComponents = {
     },
   },
   block: {
-    h1: ({ children }: any) => <h1 className="text-4xl font-bold text-purple-400 my-6">{children}</h1>,
-    h2: ({ children }: any) => <h2 className="text-3xl font-semibold text-purple-300 my-4">{children}</h2>,
-    h3: ({ children }: any) => <h3 className="text-2xl font-semibold text-purple-200 my-3">{children}</h3>,
+    h1: ({ children }: any) => (
+      <h1 className="text-4xl font-bold text-purple-400 my-6">{children}</h1>
+    ),
+    h2: ({ children }: any) => (
+      <h2 className="text-3xl font-semibold text-purple-300 my-4">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }: any) => (
+      <h3 className="text-2xl font-semibold text-purple-200 my-3">
+        {children}
+      </h3>
+    ),
     normal: ({ children }: any) => <p className="leading-7 my-4">{children}</p>,
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-purple-400 pl-4 italic my-4">{children}</blockquote>
+      <blockquote className="border-l-4 border-purple-400 pl-4 italic my-4">
+        {children}
+      </blockquote>
     ),
   },
   marks: {
-    strong: ({ children }: any) => <strong className="font-bold text-purple-300">{children}</strong>,
-    em: ({ children }: any) => <em className="italic text-purple-200">{children}</em>,
+    strong: ({ children }: any) => (
+      <strong className="font-bold text-purple-300">{children}</strong>
+    ),
+    em: ({ children }: any) => (
+      <em className="italic text-purple-200">{children}</em>
+    ),
     link: ({ value, children }: any) => {
-      const target = (value?.href || '').startsWith('http') ? '_blank' : undefined;
+      const target = (value?.href || "").startsWith("http")
+        ? "_blank"
+        : undefined;
       return (
         <a
           href={value?.href}
           target={target}
-          rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+          rel={target === "_blank" ? "noopener noreferrer" : undefined}
           className="text-purple-400 hover:text-purple-300 underline"
         >
           {children}
@@ -72,16 +86,23 @@ const ptComponents = {
     },
   },
   list: {
-    bullet: ({ children }: any) => <ul className="list-disc ml-6 space-y-2">{children}</ul>,
-    number: ({ children }: any) => <ol className="list-decimal ml-6 space-y-2">{children}</ol>,
+    bullet: ({ children }: any) => (
+      <ul className="list-disc ml-6 space-y-2">{children}</ul>
+    ),
+    number: ({ children }: any) => (
+      <ol className="list-decimal ml-6 space-y-2">{children}</ol>
+    ),
   },
 };
 
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
 
-export default async function PostPage({ params: { slug } }: Props) {
+export default async function PostPage({ params }: PageProps) {
+  const { slug } = await params;
   const post = await client.fetch(postQuery, { slug });
 
-  // Jika post tidak ditemukan, tampilkan halaman 404
   if (!post) {
     notFound();
   }
@@ -91,24 +112,25 @@ export default async function PostPage({ params: { slug } }: Props) {
       <div className="max-w-5xl rounded-xl mx-auto bg-neutral-900/50 border border-neutral-700 p-10">
         {/* Header Artikel */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">{post.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+            {post.title}
+          </h1>
           <div className="flex items-center justify-center space-x-4 text-gray-400">
             <div className="flex items-center space-x-2">
-               {post.author?.image && (
-                 <Image
-  src={
-    post.authorImage?.asset
-      ? urlFor(post.authorImage).width(40).height(40).url()
-      : "/default-avatar.jpg"
-  }
-  alt={`Foto ${post.authorName}`}
-  width={40}
-  height={40}
-  className="rounded-full"
-/>
-
-               )}
-              <span>{post.author?.name || 'Anonim'}</span>
+              {post.author?.image && (
+                <Image
+                  src={
+                    post.authorImage?.asset
+                      ? urlFor(post.authorImage).width(40).height(40).url()
+                      : "/default-avatar.jpg"
+                  }
+                  alt={`Foto ${post.authorName}`}
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                />
+              )}
+              <span>{post.author?.name || "Anonim"}</span>
             </div>
             <span>&bull;</span>
             <span>{new Date(post.publishedAt).toLocaleDateString()}</span>

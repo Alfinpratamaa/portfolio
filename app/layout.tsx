@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
-import StarsCanvas from "../components/BackgroundStar";
 import Navbar from "@/components/Navbar";
-import { NebulaEffect } from "@/components/NebulaEffect";
-
-const inter = Inter({ subsets: ["latin"] });
+import ClientEffects from "@/components/ClientEffects";
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://alfinpratamaa.github.io/"),
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
   ],
   creator: "Muhamad Alfin Pratama",
   applicationName: "evrea",
-  icons: "/avatar_2.jpeg",
+  icons: "/avatar_2.webp",
   openGraph: {
     title: "evrea",
     description:
@@ -63,13 +65,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/avatar_2.webp"
+          type="image/webp"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="shortcut icon" href="/avatar_2.jpeg" />
       </head>
       <body
-        className={`${inter.className} min-h-screen overflow-y-scroll overflow-x-hidden relative bg-black`}
+        className={`${poppins.className} min-h-screen overflow-y-scroll overflow-x-hidden relative bg-black`}
       >
-        <StarsCanvas />
-        <NebulaEffect />
+        <ClientEffects />
         <div className="relative z-[2]">
           <div className="mb-[10px]">
             <Navbar />

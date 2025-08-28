@@ -1,14 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap");
 @import "tailwindcss";
-
-* {
-  font-family: "Poppins", sans-serif;
-}
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+}
+
+@layer components {
+  .banner-heading {
+    @apply text-4xl font-bold text-white md:text-5xl;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
