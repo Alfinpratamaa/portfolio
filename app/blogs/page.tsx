@@ -1,19 +1,60 @@
 // app/blogs/page.tsx
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { client } from '@/libs/sanity.client'; 
-import imageUrlBuilder from '@sanity/image-url';
-import { groq } from 'next-sanity';
+import { client } from "@/libs/sanity.client";
+import { groq } from "next-sanity";
+import BlogClientPage from "@/components/BlogClientPage"; // Kita akan buat komponen ini
+import { Metadata } from "next";
 
-// Helper untuk membangun URL gambar dari Sanity
-const builder = imageUrlBuilder(client);
-function urlFor(source: any) {
-  return builder.image(source);
-}
+// Opsi: revalidate data setiap 1 jam
+export const revalidate = 3600;
 
-// Tipe data untuk post kita (opsional tapi sangat direkomendasikan)
-interface Post {
+export const metadata: Metadata = {
+  title: "Blog - Alfin Pratama",
+  description:
+    "Sharing my thoughts, experiences, and insights on web development, programming, and technology.",
+  openGraph: {
+    title: "Blog - Alfin Pratama",
+    description:
+      "Sharing my thoughts, experiences, and insights on web development, programming, and technology.",
+    url: "https://evrea.tech/blogs",
+    siteName: "Alfin Pratama",
+    images: [
+      {
+        url: "https://evrea.tech/avatar2_webp",
+        width: 1200,
+        height: 630,
+        alt: "Blog - Alfin Pratama",
+      },
+    ],
+    locale: "id_ID",
+    type: "website",
+  },
+  keywords: [
+    "blog",
+    "web development",
+    "programming",
+    "technology",
+    "javascript",
+    "react",
+    "next.js",
+    "sanity.io",
+    "tailwindcss",
+    "personal blog",
+    "blog alfin",
+    "coding",
+    "software development",
+    "frontend",
+    "backend",
+    "fullstack",
+    "tutorials",
+    "tips and tricks",
+    "web design",
+    "developer insights",
+    "blog evrea",
+  ],
+};
+
+export interface Post {
   _id: string;
   title: string;
   slug: { current: string };
@@ -21,9 +62,16 @@ interface Post {
   publishedAt: string;
   authorName: string;
   authorImage: any;
+  categories: Category[];
 }
 
-// Query GROQ untuk mengambil data yang kita butuhkan
+export interface Category {
+  _id: string;
+  title: string;
+  slug: { current: string };
+}
+
+// Query GROQ untuk mengambil posts dengan categories
 const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   _id,
   title,
@@ -31,67 +79,23 @@ const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   mainImage,
   publishedAt,
   "authorName": author->name, 
-  "authorImage": author->image 
+  "authorImage": author->image,
+  "categories": categories[]->{ _id, title, slug }
 }`;
 
-export const revalidate = 3600;
+// Query untuk mengambil semua categories
+const categoriesQuery = groq`*[_type == "category"] | order(title asc) {
+  _id,
+  title,
+  slug
+}`;
 
+// Jadikan halaman ini Server Component dengan fungsi async
 export default async function BlogPage() {
+  // Ambil data di server
   const posts: Post[] = await client.fetch(postsQuery);
+  const categories: Category[] = await client.fetch(categoriesQuery);
 
-  return (
-    <div className="min-h-screen py-28 bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Blog Saya</h1>
-          <p className="mt-4 text-lg text-gray-400">
-            Wawasan terbaru seputar teknologi dan pengembangan.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
-            <Link key={post._id} href={`/blogs/${post.slug.current}`} legacyBehavior>
-              <a className="group block bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-purple-500/30 transition-shadow duration-300">
-                <div className="relative w-full h-48">
-                  <Image
-                    src={urlFor(post.mainImage).width(500).height(300).url()}
-                    alt={`Gambar untuk ${post.title}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h2 className="text-xl font-bold mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
-                    {post.title}
-                  </h2>
-                  <div className="flex items-center text-sm text-gray-400 mt-4">
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden mr-3">
-                       {post.authorImage && (
-                          <Image
-  src={
-    post.authorImage?.asset
-      ? urlFor(post.authorImage).width(40).height(40).url()
-      : "/default-avatar.jpg"
-  }
-  alt={`Foto ${post.authorName}`}
-  fill
-  className="object-cover"
-/>
-
-                       )}
-                    </div>
-                    <span>{post.authorName}</span>
-                    <span className="mx-2">&bull;</span>
-                    <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  // Kirim data sebagai props ke Client Component
+  return <BlogClientPage posts={posts} categories={categories} />;
 }

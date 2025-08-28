@@ -5,8 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/private/",
     },
-    sitemap: "https://muhamadalfinpratama.vercel.app/sitemap.xml",
+    sitemap: "https://evrea.tech/sitemap.xml",
   };
 }

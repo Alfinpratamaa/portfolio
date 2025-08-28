@@ -1,24 +1,51 @@
-import { MetadataRoute } from "next";
+// app/sitemap.ts
 
-export default function sitemap(): MetadataRoute.Sitemap {
+import { MetadataRoute } from "next";
+import { client } from "@/libs/sanity.client";
+import { groq } from "next-sanity";
+
+// Definisikan tipe untuk data post yang diambil
+interface Post {
+  slug: {
+    current: string;
+  };
+  _updatedAt: string; // Gunakan _updatedAt untuk lastModified
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = "https://evrea.tech";
+
+  // 1. Ambil semua slug post dari Sanity
+  const query = groq`*[_type == "post"]{ "slug": slug.current, _updatedAt }`;
+  const posts: Post[] = await client.fetch(query);
+
+  const postUrls = posts.map((post) => ({
+    url: `${baseUrl}/blogs/${post.slug}`,
+    lastModified: new Date(post._updatedAt),
+    changeFrequency: "weekly" as "weekly",
+    priority: 0.8,
+  }));
+
+  // 2. Gabungkan dengan URL statis Anda
   return [
     {
-      url: "https://evrea.tech",
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1,
     },
     {
-      url: "https://evrea.tech/about",
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
     },
     {
-      url: "https://evrea.tech/blogs",
+      url: `${baseUrl}/blogs`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
     },
+    ...postUrls,
   ];
 }
