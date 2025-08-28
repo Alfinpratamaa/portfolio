@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import ReactTypingEffect from "react-typing-effect";
+import { TypeAnimation } from "react-type-animation";
 
 const Banner: React.FC<{}> = () => {
   const containerVariants = {
@@ -27,19 +27,6 @@ const Banner: React.FC<{}> = () => {
     hidden: { opacity: 0, scale: 0.9 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.7 } },
   };
-
-  const typingTexts = [
-    {
-      first: "Fullstack",
-      second: "Developer",
-    },
-    {
-      first: "Devops",
-      second: "Engineer",
-    },
-  ];
-
-  const texts = typingTexts.map((item) => `${item.first} ${item.second}`);
 
   return (
     <motion.section
@@ -89,24 +76,16 @@ const Banner: React.FC<{}> = () => {
             >
               <div className="flex items-center justify-center lg:justify-start gap-3">
                 <div className="text-xl md:text-2xl font-medium text-gray-200">
-                  <ReactTypingEffect
-                    text={texts}
-                    speed={100}
-                    eraseSpeed={25}
-                    typingDelay={800}
-                    eraseDelay={1000}
-                    displayTextRenderer={(text, i) => {
-                      const [first, ...rest] = text.split(" ");
-                      const second = rest.join(" ");
-                      return (
-                        <>
-                          <span className="text-white">{first}</span>{" "}
-                          <span className="text-transparent font-semibold bg-clip-text bg-gradient-to-r from-purple-400 to-orange-400">
-                            {second}
-                          </span>
-                        </>
-                      );
-                    }}
+                  <TypeAnimation
+                    sequence={[
+                      "Fullstack Developer",
+                      1000,
+                      "DevOps Engineer",
+                      1000,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    repeat={Infinity}
                   />
                 </div>
               </div>
