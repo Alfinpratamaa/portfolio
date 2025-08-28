@@ -34,11 +34,11 @@ const Navbar: React.FC<{}> = () => {
     <div className="w-full h-[5px] bg-['#111'] fixed backdrop-blur-sm py-12 z-50 px-10">
       <motion.div variants={containerVariants} className="w-full h-full flex flex-row items-center justify-between px-[10px]">
         <Link
-          title="Alfin logo"
+          title="Evrea logo"
           href="/"
           className="h-auto w-auto flex flex-row items-center"
         >
-          <motion.h1 variants={navItemVariants} className=" bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 text-transparent text-2xl font-bold">Alfin</motion.h1>
+          <motion.h1 variants={navItemVariants} className=" bg-clip-text bg-gradient-to-r from-purple-500 to-orange-500 text-transparent text-2xl font-bold">Evrea</motion.h1>
         </Link>
         {/* Navbar for desktop */}
         <div className="md:flex hidden">
@@ -71,7 +71,7 @@ const Navbar: React.FC<{}> = () => {
                 : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
             }
           >
-            <h1 className="p-4 text-center text-2xl font-bold text-white">Alfin</h1>
+            <h1 className="p-4 text-center text-2xl font-bold text-white">Evrea</h1>
 
             {/* Mobile Navigation Items */}
             {NavbarLinks.map(item => (

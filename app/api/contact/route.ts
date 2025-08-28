@@ -35,5 +35,3 @@ export const POST = async (req: Request) => {
     return Response.json({ error: "Error sending email" }, { status: 500 });
   }
 };
-
-
