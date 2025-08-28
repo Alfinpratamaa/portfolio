@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 export const POST = async (req: Request) => {
   const transporter = nodemailer.createTransport({
