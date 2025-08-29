@@ -3,6 +3,8 @@ import { groq } from "next-sanity";
 import BlogClientPage from "@/components/BlogClientPage"; // Kita akan buat komponen ini
 import { Metadata } from "next";
 
+export const runtime = 'edge';
+
 export const metadata: Metadata = {
   title: "Blog - Alfin Pratama",
   description:
