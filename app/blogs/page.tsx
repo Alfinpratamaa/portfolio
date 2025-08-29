@@ -66,7 +66,6 @@ export interface Category {
   slug: { current: string };
 }
 
-// Query GROQ untuk mengambil posts dengan categories
 const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   _id,
   title,
@@ -78,35 +77,26 @@ const postsQuery = groq`*[_type == "post"] | order(publishedAt desc) {
   "categories": categories[]->{ _id, title, slug }
 }`;
 
-// Query untuk mengambil semua categories
 const categoriesQuery = groq`*[_type == "category"] | order(title asc) {
   _id,
   title,
   slug
 }`;
 
-// Jadikan halaman ini Server Component dengan fungsi async
 export default async function BlogPage() {
-  // Ambil data di server
   const posts: Post[] = await client.fetch(
     postsQuery,
     {},
-    {
-      next: {
-        revalidate: 10,
-      },
-    }
+    { cache: "no-store" }
   );
+
   const categories: Category[] = await client.fetch(
     categoriesQuery,
     {},
     {
-      next: {
-        revalidate: 10,
-      },
+      cache: "no-store",
     }
   );
 
-  // Kirim data sebagai props ke Client Component
   return <BlogClientPage posts={posts} categories={categories} />;
 }
