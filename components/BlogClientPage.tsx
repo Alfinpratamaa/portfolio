@@ -110,7 +110,11 @@ export default function BlogClientPage({
                 <div className="group block p-3 bg-neutral-900/50 border border-neutral-700 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105">
                   <div className="relative w-full h-48 rounded-lg overflow-hidden">
                     <Image
-                      src={urlFor(post.mainImage).width(500).height(300).url()}
+                      src={
+                        post.mainImage
+                          ? urlFor(post.mainImage).url()
+                          : "https://via.placeholder.com/400x300?text=No+Image"
+                      }
                       alt={`Gambar untuk ${post.title}`}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-300"

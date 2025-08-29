@@ -93,7 +93,7 @@ export default async function BlogPage() {
     {},
     {
       next: {
-        revalidate: 60 * 60,
+        revalidate: 10,
       },
     }
   );
@@ -102,7 +102,7 @@ export default async function BlogPage() {
     {},
     {
       next: {
-        revalidate: 60 * 60 * 24,
+        revalidate: 10,
       },
     }
   );
