@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Alfin Pratama",
     images: [
       {
-        url: "https://evrea.tech/avatar2_webp",
+        url: "https://evrea.tech/avatar2_.webp",
         width: 1200,
         height: 630,
         alt: "Blog - Alfin Pratama",
